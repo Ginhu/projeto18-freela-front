@@ -1,13 +1,29 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
+import { useEffect } from "react"
+import axios from "axios"
 
-export default function Home() {
+export default function Home({setTurmas, setInfoTurma, turmaInicial}) {
+
+    useEffect(()=>{
+        axios.get("http://localhost:5000/turmas")
+        .then(res=>setTurmas(res.data))
+        .catch(err=>console.log(err.response.data))
+        axios.get(`http://localhost:5000/alunos/turma/${turmaInicial}`)
+        .then(res=>{
+            setInfoTurma(res.data)
+        })
+        .catch(err => console.log(err.response.data))    
+    })
+
     return (
         <HomeContainer>
             <H1Container><h1>DROVEM</h1></H1Container>    
             <LinksContainer>
-                <a>Cadastro de Alunos</a>
-                <a>Projetos</a>
-                <a>Entrega de Projetos</a>
+                <Link to="/cadastro"><p>Cadastro de Alunos</p></Link>
+                <Link to="/alunos"><p>Alunos</p></Link>
+                <Link to="/projetos"><p>Projetos</p></Link>
+                <Link to="/projetos/entrega"><p>Entrega de Projetos</p></Link>                
             </LinksContainer>    
         
         </HomeContainer>
@@ -57,5 +73,6 @@ const LinksContainer = styled.div`
         font-size: 25px;
         margin: 25px 0;
         background-color: grey;
+        text-decoration: none;
     }
 `
