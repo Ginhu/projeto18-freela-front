@@ -13,7 +13,7 @@ export default function CadastroAluno () {
     const [selectedTurma, setSelectedTurma] = useState("Escolha a turma")
 
     useEffect(()=>{
-        axios.get("http://localhost:5000/turmas")
+        axios.get("https://drovemapi.onrender.com/turmas")
         .then(res=> setTurma(res.data))
     })
 
@@ -21,7 +21,7 @@ export default function CadastroAluno () {
         if(!nome || !cpf || !email || !foto || selectedTurma === "Escolha a turma") return alert('Todos os campos são obrigatórios')
         const body = {nome: nome, cpf: cpf, email: email, foto: foto, idTurma: selectedTurma}
 
-        axios.post("http://localhost:5000/alunos", body)
+        axios.post("https://drovemapi.onrender.com/alunos", body)
         .then(res=>{
             setNome("")
             setCpf("")

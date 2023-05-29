@@ -7,10 +7,10 @@ export default function SidebarProjetos ({projetoInicial, turmaInicial, setTurma
     const [projetos, setProjetos] = useState()
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/projetos`)
+        axios.get(`https://drovemapi.onrender.com/projetos`)
         .then(res=>{
             setProjetos(res.data)
-            axios.get(`http://localhost:5000/turmas`)
+            axios.get(`https://drovemapi.onrender.com/turmas`)
             .then(res=>{
                 setTurmas(res.data)
             })

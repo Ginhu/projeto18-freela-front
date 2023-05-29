@@ -14,7 +14,7 @@ export default function ProjetosPorTurmas ({turmaInicial, projetoInicial, setTur
     const [idProj, setIdProj] = useState()
     
     useEffect(()=>{
-        axios.get(`http://localhost:5000/projetos/${turmaInicial}/${projetoInicial}`)
+        axios.get(`https://drovemapi.onrender.com/projetos/${turmaInicial}/${projetoInicial}`)
         .then(res=>{
             setProjetos(res.data)
         })
@@ -28,7 +28,7 @@ export default function ProjetosPorTurmas ({turmaInicial, projetoInicial, setTur
 
     function escolhernota(idNota) {
         const body = {id: idProj, idNota: idNota}
-        axios.put("http://localhost:5000/projetos", body)
+        axios.put("https://drovemapi.onrender.com/projetos", body)
         .then(res=>{
             alert('Nota atualizada')
             setModal(false)

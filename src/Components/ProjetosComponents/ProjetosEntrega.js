@@ -13,17 +13,17 @@ export default function ProjetosEntrega({turmas}) {
     const [linkProjeto, setLinkProjeto] = useState("")
 
     useEffect(()=>{
-        axios.get("http://localhost:5000/projetos")
+        axios.get("https://drovemapi.onrender.com/projetos")
         .then(res=>setProjeto(res.data))
         .catch(err=>console.log(err.response.data))
 
-        axios.get(`http://localhost:5000/alunos/turma/${selectedTurma}`)
+        axios.get(`https://drovemapi.onrender.com/alunos/turma/${selectedTurma}`)
         .then(res=>setNome(res.data))
         .catch(err=>console.log(err.response.data))
     }, [])
 
     function getNomes () {
-        axios.get(`http://localhost:5000/alunos/turma/${selectedTurma}`)
+        axios.get(`https://drovemapi.onrender.com/alunos/turma/${selectedTurma}`)
         .then(res=>setNome(res.data))
         .catch(err=>console.log(err.response.data))
     }
@@ -40,7 +40,7 @@ export default function ProjetosEntrega({turmas}) {
 
     const body = {idAluno: selectedNome, idTurma: selectedTurma, idProjeto: selectedProjeto, link: linkProjeto}
 
-    axios.post("http://localhost:5000/projetos", body)
+    axios.post("https://drovemapi.onrender.com/projetos", body)
     .then(res=> {
         setSelectedTurma("")
         setSelectedNome("")

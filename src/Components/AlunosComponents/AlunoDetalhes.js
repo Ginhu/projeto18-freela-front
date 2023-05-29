@@ -10,7 +10,7 @@ export default function AlunoDetalhe({el}) {
     const {id} = useParams()
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/alunos/aluno/${id}`)
+        axios.get(`https://drovemapi.onrender.com/alunos/aluno/${id}`)
         .then(res=> setDetails(res.data))
     }, [])
 

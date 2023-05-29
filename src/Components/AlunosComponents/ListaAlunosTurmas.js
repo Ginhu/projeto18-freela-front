@@ -11,7 +11,7 @@ export default function AlunosPorTurma ({turmas, turmaInicial, setTurmaInicial, 
     
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/alunos/turma/${turmaInicial}`)
+        axios.get(`https://drovemapi.onrender.com/alunos/turma/${turmaInicial}`)
         .then(res=>{
             setInfoTurma(res.data)
         })

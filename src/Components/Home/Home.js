@@ -6,10 +6,10 @@ import axios from "axios"
 export default function Home({setTurmas, setInfoTurma, turmaInicial}) {
 
     useEffect(()=>{
-        axios.get("http://localhost:5000/turmas")
+        axios.get("https://drovemapi.onrender.com/turmas")
         .then(res=>setTurmas(res.data))
         .catch(err=>console.log(err.response.data))
-        axios.get(`http://localhost:5000/alunos/turma/${turmaInicial}`)
+        axios.get(`https://drovemapi.onrender.com/alunos/turma/${turmaInicial}`)
         .then(res=>{
             setInfoTurma(res.data)
         })
