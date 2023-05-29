@@ -34,7 +34,7 @@ export default function AlunosPorTurma ({turmas, turmaInicial, setTurmaInicial, 
 
                 {infoTurma && infoTurma.map((el)=>
                     <AlunoDetailDiv key={el.id} el={el} onClick={()=>goDetails(el.idAluno)}>                                   
-                        <span>{el.foto}</span>
+                        <img src={el.foto}/>
                         <p>{el.nome}</p>
                     </AlunoDetailDiv>)}
 
